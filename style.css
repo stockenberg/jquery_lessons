@@ -1,0 +1,7 @@
+p{
+    background: red;
+}
+
+br:nth-child(odd){
+    border-bottom: thin solid black;
+}
