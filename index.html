@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        p{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<button class="click">Do it</button>
-
-<h1 style="position: absolute">Hallo</h1>
+<div class="accordeon">
+    <h2>Headline</h2>
+    <p>Text</p>
+    <h2>Headline</h2>
+    <p>Text</p>
+    <h2>Headline</h2>
+    <p>Text</p>
+    <h2>Headline</h2>
+    <p>Text</p>
+</div>
 
 <script src="js/jquery-3.1.1.js"></script>
-<script src="js/effects.js"></script>
 
+<script>
+
+    $(".accordeon h2").click(function () {
+        $(".accordeon p").slideUp(500);
+        $(this).next().slideToggle(500);
+    });
+
+</script>
 </body>
 </html>
