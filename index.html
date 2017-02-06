@@ -25,7 +25,7 @@
 <script src="js/jquery-3.1.1.js"></script>
 
 <script>
-
+    console.log($("body").innerHTML);
     $(".accordeon h2").click(function () {
         $(".accordeon p").slideUp(500);
         $(this).next().slideToggle(500);
