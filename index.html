@@ -4,33 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        p{
-            display: none;
+        .red{
+            color: red;
         }
     </style>
 </head>
 <body>
 
-<div class="accordeon">
-    <h2>Headline</h2>
-    <p>Text</p>
-    <h2>Headline</h2>
-    <p>Text</p>
-    <h2>Headline</h2>
-    <p>Text</p>
-    <h2>Headline</h2>
-    <p>Text</p>
+<div>
+    <h2>Meine Überschrift</h2>
+    <button>Toggle Red Color</button>
 </div>
 
 <script src="js/jquery-3.1.1.js"></script>
+<script src="js/html-manipulation.js"></script>
 
 <script>
-    console.log($("body").innerHTML);
-    $(".accordeon h2").click(function () {
-        $(".accordeon p").slideUp(500);
-        $(this).next().slideToggle(500);
-    });
-
+    $("button").click(function(){
+        $("h2").outerHeight(200)
+    })
 </script>
 </body>
 </html>
