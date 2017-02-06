@@ -4,24 +4,92 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .red{
-            color: red;
+        body{
+            background: #222;
+            font-family: Arial, sans-serif;
+            font-weight: 200;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+            background: #45484d; /* Old browsers */
+            background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+        }
+
+        .lightbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,.9);
+            width: 100%;
+            height: 100%;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            border-bottom: thin solid white;
+            padding-bottom: 5px;
+        }
+        #gallery img{
+            cursor: pointer;
+            opacity: 0.5;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+        #gallery img:hover{
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        .hidden{
+            display: none;
+        }
+        .lightbox{
+            text-align: center;
+
+        }
+        .lightbox img{
+            display: inline-block;
+            height: 400px;
+            width: auto;
+            margin-top: 5%;
+            border: 5px solid white;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
+<h2>Meine Familienfotos</h2>
+<div id="gallery">
+    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
+    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
+    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
+    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
+    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
+    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
+    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
+    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
+    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
 
-<div>
-    <h2>Meine Überschrift</h2>
-    <button>Toggle Red Color</button>
+</div>
+
+<div class="lightbox hidden">
+    <img src=""  alt=""/>
 </div>
 
 <script src="js/jquery-3.1.1.js"></script>
-<script src="js/html-manipulation.js"></script>
 
 <script>
-    $("button").click(function(){
-        $("h2").outerHeight(200)
+
+    $("#gallery img").click(function () {
+        var imgSrc = $(this).attr("src");
+        $(".lightbox").toggleClass("hidden").find("img").attr("src", imgSrc);
+    });
+
+    $(".lightbox").click(function () {
+        $(".lightbox").toggleClass("hidden");
     })
 </script>
 </body>
