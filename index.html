@@ -4,50 +4,76 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        body{
+        body {
             background: #222;
             font-family: Arial, sans-serif;
             font-weight: 200;
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
             background: #45484d; /* Old browsers */
-            background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+            background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #45484d 0%, #000000 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #45484d 0%, #000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#45484d', endColorstr='#000000', GradientType=0); /* IE6-9 */
         }
 
-        .lightbox{
+        .lightbox {
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(0,0,0,.9);
+            background: rgba(0, 0, 0, .9);
             width: 100%;
             height: 100%;
+            z-index: 1;
         }
-        h2{
+
+        h2 {
             text-align: center;
             color: white;
             border-bottom: thin solid white;
             padding-bottom: 5px;
         }
-        #gallery img{
+
+        #gallery img {
             cursor: pointer;
             opacity: 0.5;
             border: 3px solid white;
             border-radius: 5px;
         }
-        #gallery img:hover{
+
+        #gallery img:hover {
             opacity: 1;
             transition: opacity 1s;
         }
-        .hidden{
+
+        .hidden {
             display: none;
         }
-        .lightbox{
+
+        .lightbox {
             text-align: center;
 
         }
-        .lightbox img{
+
+        .lightbox p {
+            position: absolute;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+            cursor: pointer;
+            font-size: 80px;
+            bottom: 30%;
+        }
+
+        .previous {
+            left: 0;
+
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .lightbox img {
             display: inline-block;
             height: 400px;
             width: auto;
@@ -60,37 +86,92 @@
 <body>
 <h2>Meine Familienfotos</h2>
 <div id="gallery">
-    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
-    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
-    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
-    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
-    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
-    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
-    <img src="https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" height="150px" alt=""/>
-    <img src="http://www.mountainguides.com/photos/everest-south/c2_2011b.jpg" height="150px" alt=""/>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Bonsai_IMG_6426.jpg" height="150px" alt=""/>
-    <img src="http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px" alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+    <img src="IMG_360842.png" height="150px"
+         alt=""/>
+    <img src="ubuntu_bubbles_linux_93773_1920x1080.jpg" height="150px" alt=""/>
+
 
 </div>
 
 <div class="lightbox hidden">
-    <img src=""  alt=""/>
+    <p class="previous"> < </p>
+    <img src="" alt=""/>
+    <p class="next"> > </p>
 </div>
 
 <script src="js/jquery-3.1.1.js"></script>
 
 <script>
+    // Config
+    var activeImg = "#gallery img.active";
+    var nextButton = $(".next");
+    var prevButton = $(".previous");
 
+    // Predefined to save memory
+    var var_imgSrc;
+
+    function changeLightboxImg(imgSrcParam) {
+        $(".lightbox").find("img").attr("src", imgSrcParam);
+    }
+
+    // Open
     $("#gallery img").click(function () {
-        var imgSrc = $(this).attr("src");
-        $(".lightbox").toggleClass("hidden").find("img").attr("src", imgSrc);
+        $(this).addClass("active");
+        var_imgSrc = $(this).attr("src");
+        $(".lightbox").toggleClass("hidden");
+        changeLightboxImg(var_imgSrc);
     });
 
-    $(".lightbox").click(function () {
+
+    // PREV
+    prevButton.click(function () {
+        if($(activeImg).prev().length > 0){
+            var_imgSrc = $(activeImg)
+                .removeClass("active")
+                .prev()
+                .addClass("active")
+                .attr("src");
+
+            changeLightboxImg(var_imgSrc);
+        }
+    });
+
+    // NEXT
+    nextButton.click(function () {
+        if($(activeImg).next().length > 0){
+            var_imgSrc = $(activeImg)
+                .removeClass("active")
+                .next()
+                .addClass("active")
+                .attr("src");
+
+            changeLightboxImg(var_imgSrc);
+        }
+    });
+
+
+    // Close
+    $(".lightbox img").click(function () {
         $(".lightbox").toggleClass("hidden");
-    })
+    });
+
 </script>
 </body>
 </html>
