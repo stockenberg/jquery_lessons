@@ -14,6 +14,7 @@ var obj = {
 
 
 $("input[type=submit]").click(function (event) {
+
     event.preventDefault();
 
     var fieldsSel = $("form input, form select, form textarea");
@@ -21,18 +22,14 @@ $("input[type=submit]").click(function (event) {
     console.dir(fieldsSel);
 
     for(var i = 0; i < fieldsSel.length - 1; i++){
-        //console.dir(fieldsSel[i].value);
 
         if(fieldsSel[i].type == "radio" || fieldsSel[i].type == "checkbox"){
             console.log(fieldsSel[i]);
         }else{
-
+            $(fieldsSel[i]).next("p.error").remove();
             if(fieldsSel[i].value === ""){
-                console.log("test");
-                $(fieldsSel[i]).next("p.error").remove();
                 $(fieldsSel[i]).after("<p class='error'>Bitte füllen sie das '" + $(fieldsSel[i]).prev().html() + "' - Feld aus</p>");
             }else{
-
                 for(var key in obj){
                     if($(fieldsSel[i]).hasClass(key)){
                         console.log("Email gefunden");
@@ -44,7 +41,6 @@ $("input[type=submit]").click(function (event) {
             }
 
         }
-
 
     }
 });
