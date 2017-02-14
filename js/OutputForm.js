@@ -21,7 +21,7 @@ for (var counter = 0; counter < form.length; counter++) {
                 options += "<option value='" + form[counter].options[i] + "'>" + form[counter].options[i] + "</option>";
             }
 
-            formElem.append("<div><select>"+ options +"</select></div>");
+            formElem.append("<div><label>" + form[counter].label + "</label><select>"+ options +"</select></div>");
             break;
 
         default:

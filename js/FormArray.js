@@ -4,6 +4,7 @@
 
 
 // Basics Array & Object
+// Config
 
 var form = [
     {
@@ -13,38 +14,11 @@ var form = [
         label: "Anrede",
         id: "title",
         options: [
-            "Bitte wählen", "Herr", "Frau"
+            "", "Herr", "Frau"
         ]
     },
     {
         type: "text",
-        name: "firstname",
-        value: "",
-        label: "Vorname",
-        id: "firstname",
-        placeholder: "title"
-
-    },
-    {
-        type: "text",
-        name: "lastname",
-        value: "",
-        label: "Nachname",
-        id: "lastname",
-        placeholder: "title"
-
-    },
-    {
-        type: "text",
-        name: "phone",
-        value: "",
-        label: "Telefonnummer",
-        id: "phone",
-        placeholder: "title"
-
-    },
-    {
-        type: "",
         name: "email",
         value: "",
         label: "E-Mail-Adresse",
@@ -57,6 +31,24 @@ var form = [
         name: "message",
         value: "",
         label: "Nachricht",
+        id: "message",
+        placeholder: "title"
+
+    },
+    {
+        type: "radio",
+        name: "payment",
+        value: "",
+        label: "Sofortüberweisung",
+        id: "message",
+        placeholder: "title"
+
+    },
+    {
+        type: "radio",
+        name: "payment",
+        value: "",
+        label: "Paypal",
         id: "message",
         placeholder: "title"
 
