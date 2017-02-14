@@ -3,6 +3,15 @@
  */
 
 // Functions and Events + This
+var obj = {
+    email: "regexp",
+    firstname: "regexpfirst",
+    lastname: "regexplastname",
+    phone: "regexpphone",
+    message: "regexpmessage",
+    postcode: "regexppostcode"
+};
+
 
 $("input[type=submit]").click(function (event) {
     event.preventDefault();
@@ -20,8 +29,17 @@ $("input[type=submit]").click(function (event) {
 
             if(fieldsSel[i].value === ""){
                 console.log("test");
-                $(fieldsSel[i]).after("<p>Bitte füllen sie das '" + $(fieldsSel[i]).prev().html() + "' - Feld aus</p>");
+                $(fieldsSel[i]).next("p.error").remove();
+                $(fieldsSel[i]).after("<p class='error'>Bitte füllen sie das '" + $(fieldsSel[i]).prev().html() + "' - Feld aus</p>");
             }else{
+
+                for(var key in obj){
+                    if($(fieldsSel[i]).hasClass(key)){
+                        console.log("Email gefunden");
+                        console.log("Der Dazugehörige Regexp ist:" + obj[key]);
+                    }
+
+                }
 
             }
 
