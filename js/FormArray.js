@@ -15,7 +15,8 @@ var form = [
         id: "title",
         options: [
             "", "Herr", "Frau"
-        ]
+        ],
+        classes: "title"
     },
     {
         type: "text",
@@ -23,7 +24,8 @@ var form = [
         value: "",
         label: "E-Mail-Adresse",
         id: "email",
-        placeholder: "title"
+        placeholder: "title",
+        classes: "email"
 
     },
     {
@@ -32,7 +34,8 @@ var form = [
         value: "",
         label: "Nachricht",
         id: "message",
-        placeholder: "title"
+        placeholder: "title",
+        classes: "message"
 
     },
     {
@@ -41,7 +44,8 @@ var form = [
         value: "",
         label: "Sofortüberweisung",
         id: "message",
-        placeholder: "title"
+        placeholder: "title",
+        classes: "payment"
 
     },
     {
@@ -50,7 +54,8 @@ var form = [
         value: "",
         label: "Paypal",
         id: "message",
-        placeholder: "title"
+        placeholder: "title",
+        classes: "payment"
 
     },
     {
@@ -59,7 +64,8 @@ var form = [
         value: "Senden",
         label: "",
         id: "",
-        placeholder: "title"
+        placeholder: "title",
+        classes: ""
     }
 
 ];

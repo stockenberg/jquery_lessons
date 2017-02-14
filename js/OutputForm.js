@@ -10,7 +10,7 @@ for (var counter = 0; counter < form.length; counter++) {
 
     switch (form[counter].type) {
         case "textarea":
-            formElem.append("<div><label>" + form[counter].label + "</label><textarea col='10' row='3' placeholder='" + form[counter].placeholder + "'></textarea></div>");
+            formElem.append("<div><label>" + form[counter].label + "</label><textarea class='" + form[counter].classes + "' col='10' row='3' placeholder='" + form[counter].placeholder + "'></textarea></div>");
             break;
 
         case "select":
@@ -21,11 +21,11 @@ for (var counter = 0; counter < form.length; counter++) {
                 options += "<option value='" + form[counter].options[i] + "'>" + form[counter].options[i] + "</option>";
             }
 
-            formElem.append("<div><label>" + form[counter].label + "</label><select>"+ options +"</select></div>");
+            formElem.append("<div><label>" + form[counter].label + "</label><select class='" + form[counter].classes + "'>"+ options +"</select></div>");
             break;
 
         default:
-            formElem.append("<div><label>" + form[counter].label + "</label><input name='" + form[counter].name + "' placeholder='" + form[counter].placeholder + "' type=" + form[counter].type + " name=" + form[counter].name + "></div>");
+            formElem.append("<div><label>" + form[counter].label + "</label><input class='" + form[counter].classes + "' name='" + form[counter].name + "' placeholder='" + form[counter].placeholder + "' type=" + form[counter].type + " name=" + form[counter].name + "></div>");
             break;
     }
 
