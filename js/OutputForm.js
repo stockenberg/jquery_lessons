@@ -25,7 +25,7 @@ for (var counter = 0; counter < form.length; counter++) {
             break;
 
         default:
-            formElem.append("<div><label>" + form[counter].label + "</label><input class='" + form[counter].classes + "' name='" + form[counter].name + "' placeholder='" + form[counter].placeholder + "' type=" + form[counter].type + " name=" + form[counter].name + "></div>");
+            formElem.append("<div><label>" + form[counter].label + "</label><input class='" + form[counter].classes + "' name='" + form[counter].name + "' placeholder='" + form[counter].placeholder + "' type=" + form[counter].type + "></div>");
             break;
     }
 
