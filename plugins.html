@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="plugins/gallery_v2_24/css/blueimp-gallery.min.css">
+
+    <link rel="stylesheet" href="plugins/fullcalendar-3.1.0/fullcalendar.min.css">
+
+    <title>Title</title>
+    <style>
+        #calendar{
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id='calendar'></div>
+
+
+<div id="links">
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+    <a href="IMG_360842.png" title="Banana">
+        <img src="IMG_360842.png" height="100" alt="Banana">
+    </a>
+</div>
+
+
+<!-- Gallery Plugin Markup -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+
+<script src="plugins/gallery_v2_24/js/blueimp-gallery.min.js"></script>
+
+<script src="plugins/fullcalendar-3.1.0/lib/moment.min.js"></script>
+<script src="plugins/fullcalendar-3.1.0/lib/jquery.min.js"></script>
+<script src="plugins/fullcalendar-3.1.0/fullcalendar.min.js"></script>
+
+<script>
+
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = {index: link, event: event, transitionSpeed: 100},
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+
+    $(document).ready(function () {
+        $('#calendar').fullCalendar({
+            height: 500,
+        });
+    });
+</script>
+
+</body>
+</html>
