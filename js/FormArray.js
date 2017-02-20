@@ -5,6 +5,14 @@
 
 // Basics Array & Object
 // Config
+// Todo: rename obj in regexpObj
+var obj = {
+    email: "regexp",
+    string: /[A-ZÄÖÜa-zöäü ,.'-]+$/i,
+    phone: "regexpphone",
+    message: "regexpmessage",
+    postcode: "regexppostcode"
+};
 
 var form = [
     {
@@ -16,7 +24,26 @@ var form = [
         options: [
             "", "Herr", "Frau"
         ],
-        classes: "title"
+    },
+    {
+        type: "text",
+        name: "firstname",
+        value: "",
+        label: "Vorname",
+        id: "firstname",
+        placeholder: "title",
+        classes: "string"
+
+    },
+    {
+        type: "text",
+        name: "lastname",
+        value: "",
+        label: "Nachname",
+        id: "lastname",
+        placeholder: "title",
+        classes: "string"
+
     },
     {
         type: "text",
@@ -25,7 +52,6 @@ var form = [
         label: "E-Mail-Adresse",
         id: "email",
         placeholder: "title",
-        classes: "email"
 
     },
     {
@@ -35,7 +61,6 @@ var form = [
         label: "Nachricht",
         id: "message",
         placeholder: "title",
-        classes: "message"
 
     },
     {
@@ -45,7 +70,7 @@ var form = [
         label: "Sofortüberweisung",
         id: "message",
         placeholder: "title",
-        classes: "payment"
+        classes: "validate"
 
     },
     {
@@ -55,7 +80,27 @@ var form = [
         label: "Paypal",
         id: "message",
         placeholder: "title",
-        classes: "payment"
+        classes: "validate"
+
+    },
+    {
+        type: "radio",
+        name: "test",
+        value: "",
+        label: "Sofortüberweisung",
+        id: "message",
+        placeholder: "title",
+        classes: "validate"
+
+    },
+    {
+        type: "radio",
+        name: "test",
+        value: "",
+        label: "Paypal",
+        id: "message",
+        placeholder: "title",
+        classes: "validate"
 
     },
     {
@@ -65,7 +110,6 @@ var form = [
         label: "",
         id: "",
         placeholder: "title",
-        classes: ""
     }
 
 ];

@@ -3,15 +3,7 @@
  */
 
 // Functions and Events + This
-var obj = {
-    email: "regexp",
-    firstname: "regexpfirst",
-    lastname: "regexplastname",
-    phone: "regexpphone",
-    message: "regexpmessage",
-    postcode: "regexppostcode"
-};
-
+var ifchecked = false;
 
 $("input[type=submit]").click(function (event) {
 
@@ -19,24 +11,59 @@ $("input[type=submit]").click(function (event) {
 
     var fieldsSel = $("form input, form select, form textarea");
 
-    console.dir(fieldsSel);
 
     for(var i = 0; i < fieldsSel.length - 1; i++){
 
         if(fieldsSel[i].type == "radio" || fieldsSel[i].type == "checkbox"){
-            console.log(fieldsSel[i]);
+
+                var selector = $(fieldsSel[i]).attr("name");
+
+                if(selector != selectorTemp){
+
+                    var check = false,
+                        elems = $("input[name="+selector+"]");
+
+                    for(var radioI = 0; radioI < elems.length; radioI++){
+                        if($(elems[radioI]).hasClass("validate")){
+                            if($(elems[radioI]).prop("checked")) {
+                                check = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(!check){
+                        console.log("Bitte felder anhaken");
+                    }
+                }
+
+                var selectorTemp = $(fieldsSel[i]).attr("name");
+
+
         }else{
-            $(fieldsSel[i]).next("p.error").remove();
+            $(fieldsSel[i]).next("p.error, p.success").remove();
             if(fieldsSel[i].value === ""){
                 $(fieldsSel[i]).after("<p class='error'>Bitte füllen sie das '" + $(fieldsSel[i]).prev().html() + "' - Feld aus</p>");
             }else{
-                for(var key in obj){
-                    if($(fieldsSel[i]).hasClass(key)){
-                        console.log("Email gefunden");
-                        console.log("Der Dazugehörige Regexp ist:" + obj[key]);
+                for(var className in obj){
+
+                    if($(fieldsSel[i]).hasClass(className)){
+
+                        if($(fieldsSel[i]).val().match(obj[className])){
+                            $(fieldsSel[i]).after("<p class='success'>Eingabe ist korrekt.</p>");
+
+                            break;
+                        }else{
+                            $(fieldsSel[i]).after("<p class='error'>Eingabe ist falsch.</p>");
+
+                        }
+
+
                     }
 
+
                 }
+
 
             }
 

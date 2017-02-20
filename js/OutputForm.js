@@ -9,6 +9,7 @@ var formElem = $("form");
 for (var counter = 0; counter < form.length; counter++) {
 
     switch (form[counter].type) {
+
         case "textarea":
             formElem.append("<div><label>" + form[counter].label + "</label><textarea class='" + form[counter].classes + "' col='10' row='3' placeholder='" + form[counter].placeholder + "'></textarea></div>");
             break;
