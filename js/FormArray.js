@@ -51,7 +51,7 @@ var form = [
         value: "",
         label: "E-Mail-Adresse",
         id: "email",
-        placeholder: "title",
+        placeholder: "title"
 
     },
     {
@@ -84,20 +84,20 @@ var form = [
 
     },
     {
-        type: "radio",
-        name: "test",
+        type: "checkbox",
+        name: "huhuhuu",
         value: "",
-        label: "Sofortüberweisung",
+        label: "MUSSTE NICH MACHEN",
         id: "message",
         placeholder: "title",
-        classes: "validate"
+        classes: ""
 
     },
     {
-        type: "radio",
-        name: "test",
+        type: "checkbox",
+        name: "hahaha",
         value: "",
-        label: "Paypal",
+        label: "MUSSTE MACHEN",
         id: "message",
         placeholder: "title",
         classes: "validate"
